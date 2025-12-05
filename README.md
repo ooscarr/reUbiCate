@@ -15,6 +15,15 @@
 
 ---
 
+## CAMBIOS REUBICATE
+. Se habilitó el filtro de REciclaje que filtra la categoría de basureros
+- ahora hay un subfiltro de materiales (lo que implica agregar un campo "cod_recicla":["PAP","PET","HDPE"], en /data/places.json)
+- el subfiltro filtra por ese dato que debería haber en cada basurero de la BD
+- además se agregó un botón de camara
+- la camara envía la foto a Google gemini para que retorne el código
+- se activa el subfiltro de basureros para el material según el análisis de gemini
+- lo hice solo falta mucho por mejorar la interfaz y poner datos de los basureros.
+
 ## Descripción
 
 Proyecto Open Source desarrollado como un buscador de salas en los campus de la Pontificia Universidad Católica de Chile, que permite a los estudiantes encontrar y localizar rápidamente en un mapa dinámico.

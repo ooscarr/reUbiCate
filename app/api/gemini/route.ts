@@ -11,13 +11,15 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "No image provided" }, { status: 400 });
     }
 
-    // Remove the data:image/jpeg;base64, prefix
-    const base64Image = image.split(",")[1];
+    // Clean the base64 string
+    const base64Image = image.includes("base64,") 
+      ? image.split("base64,")[1] 
+      : image;
 
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     const result = await model.generateContent([
-      prompt || "Describe this image.",
+      prompt,
       {
         inlineData: {
           data: base64Image,
@@ -27,7 +29,6 @@ export async function POST(req: Request) {
     ]);
 
     const response = await result.response;
-    // CLEANUP: Trim whitespace to match exact codes like "PET"
     const text = response.text().trim();
 
     return NextResponse.json({ text });
