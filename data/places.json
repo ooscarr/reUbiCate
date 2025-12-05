@@ -4473,6 +4473,7 @@
                 "categories": [
                     "trash"
                 ],
+                "cod_recicla":["PAP","PET","HDPE"],
                 "faculties": [],
                 "floors": [
                     1
