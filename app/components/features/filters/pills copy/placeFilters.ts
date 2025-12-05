@@ -17,7 +17,7 @@ export const nameFilter: PlaceFilter = (geoJson, query) => {
     feature.properties.name.toLowerCase().startsWith(query.toLowerCase()),
   );
 };
-/*
+
 export const recicodFilter: PlaceFilter = (geoJson, query) => {
   return geoJson.features.filter(
     (feature: { properties: { categories: string | string[]; category: string } }) =>
@@ -25,12 +25,5 @@ export const recicodFilter: PlaceFilter = (geoJson, query) => {
         ? feature.properties.categories.includes(query)
         : feature.properties.categories === query) ||
       (feature.properties.category && feature.properties.category.toLowerCase().includes(query.toLowerCase())),
-  );
-};*/
-export const recyclingFilter: PlaceFilter = (geoJson, query) => {
-  return geoJson.features.filter((feature: any) =>
-    feature.properties.cod_recicla && Array.isArray(feature.properties.cod_recicla)
-      ? feature.properties.cod_recicla.includes(query)
-      : feature.properties.cod_recicla === query
   );
 };

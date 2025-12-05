@@ -13,6 +13,7 @@ import { useTheme } from "@/app/context/themeCtx";
 import { SubSidebarType } from "@/lib/types";
 
 import PillFilter from "../../filters/pills/PillFilter";
+import RecyclingFilter from "../../filters/pills/RecyclingFilter";
 import PlaceMenu from "../../places/placeMenu/placeMenu";
 import { SearchDropdown } from "../../search/SearchDropdown";
 
@@ -196,6 +197,14 @@ export default function DesktopSidebar() {
                       <p className="text-md font-semibold text-foreground">Filtra por categoría</p>
                       <PillFilter />
                     </div>
+
+                    {/* --- NEW SECTION --- */}
+                    <div className="flex flex-col gap-2 w-full">
+                      <p className="text-md font-semibold text-foreground">Filtra por reciclaje</p>
+                      <RecyclingFilter />
+                    </div>
+                    {/* ------------------- */}
+
                   </div>
                 </section>
               </div>
