@@ -16,7 +16,8 @@
 ---
 
 ## CAMBIOS REUBICATE
-. Se habilitó el filtro de REciclaje que filtra la categoría de basureros
+- HAY QUE PONER EL VALOR DE LA API DE GEMINI EN .env.local
+- Se habilitó el filtro de REciclaje que filtra la categoría de basureros
 - ahora hay un subfiltro de materiales (lo que implica agregar un campo "cod_recicla":["PAP","PET","HDPE"], en /data/places.json)
 - el subfiltro filtra por ese dato que debería haber en cada basurero de la BD
 - además se agregó un botón de camara
