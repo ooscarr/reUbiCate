@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Button } from "@/app/components/ui/button"; // Assuming you want to use the app's button
 import { recyclingFilter } from "@/app/components/features/filters/pills/placeFilters";
 import { useSidebar } from "@/app/context/sidebarCtx";
+import CameraSearch from "../../search/CameraSearch"; // Importing the camera component
 
 // Define your static buttons here
 const RECYCLING_TYPES = [
@@ -58,6 +59,7 @@ export default function RecyclingFilter() {
           {type.label}
         </Button>
       ))}
+      <CameraSearch />
     </div>
   );
 }
