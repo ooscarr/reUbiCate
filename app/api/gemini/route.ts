@@ -17,7 +17,7 @@ export async function POST(req: Request) {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     const result = await model.generateContent([
-      prompt || "Identifica este lugar o edificio dentro del campus universitario. Responde solo con el nombre si lo sabes.",
+      prompt || "Describe this image.",
       {
         inlineData: {
           data: base64Image,
@@ -27,7 +27,8 @@ export async function POST(req: Request) {
     ]);
 
     const response = await result.response;
-    const text = response.text();
+    // CLEANUP: Trim whitespace to match exact codes like "PET"
+    const text = response.text().trim();
 
     return NextResponse.json({ text });
   } catch (error) {

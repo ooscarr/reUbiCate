@@ -76,20 +76,20 @@ export default function CameraSearch() {
         body: JSON.stringify({
           image: imageBase64,
           prompt:
-            "Identifica este lugar o edificio dentro del campus universitario. Responde solo con el nombre si lo sabes.",
+            "Analyze this image and identify the material for recycling. You must respond with EXACTLY ONE of the following codes: PAP, PET, HDPE, VIDRIO, LATA, OTROS. Return only the code, no other text.",
         }),
       });
 
       const data = await response.json();
 
       if (data.text) {
-        const results = fuse.search(data.text);
-        if (results.length > 0) {
-          const feature = results[0].item as Feature;
-          setPlaces([feature]);
-          emitPlaceSelectedEvent(feature);
+        const code = data.text.trim().toUpperCase();
+        // Use the callback if it exists (Recycling Mode)
+        if (onCodeDetected) {
+          onCodeDetected(code);
         } else {
-          alert(`Gemini dice: ${data.text} (No encontrado en el mapa)`);
+          // Fallback (or Search Mode logic if re-implemented later)
+          alert(`Código detectado: ${code}`);
         }
       }
     } catch (error) {
@@ -149,7 +149,7 @@ export default function CameraSearch() {
           {isAnalyzing && (
             <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
               <div className="bg-white p-4 rounded-lg text-black font-bold">
-                Analizando...
+                Analizando material...
               </div>
             </div>
           )}

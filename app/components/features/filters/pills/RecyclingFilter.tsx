@@ -11,6 +11,8 @@ const RECYCLING_TYPES = [
   { label: "Plástico (PET)", code: "PET" },
   { label: "Polietileno (HDPE)", code: "HDPE" },
   { label: "Aluminio (ALU)", code: "ALU" },
+  { label: "Cartón (CAR)", code: "CAR" },
+  { label: "Otro", code: "OTROS" },
   // Add others as needed: VIDRIO, LATA, etc.
 ];
 
@@ -59,7 +61,7 @@ export default function RecyclingFilter() {
           {type.label}
         </Button>
       ))}
-      <CameraSearch />
+      <CameraSearch onCodeDetected={handleFilter} />
     </div>
   );
 }
