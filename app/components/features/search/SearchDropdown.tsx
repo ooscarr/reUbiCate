@@ -216,7 +216,7 @@ export function SearchDropdown({ numberOfShowResults = 8 }: SearchDropdownProps)
                 const primaryCategory = feature.properties.categories[0];
                 const color = getCategoryColor(primaryCategory as CATEGORIES);
                 const placeName = feature.properties.name;
-                const campusName = siglas.get(feature.properties.campus);
+                const   pusName = siglas.get(feature.properties.campus);
 
                 // Determinar si necesita texto más pequeño
                 const needsSmallText = placeName.length > 30;

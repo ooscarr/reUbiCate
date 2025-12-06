@@ -5,7 +5,7 @@ import { recyclingFilter } from "@/app/components/features/filters/pills/placeFi
 import { useSidebar } from "@/app/context/sidebarCtx";
 import CameraSearch from "../../search/CameraSearch"; // Importing the camera component
 
-// Define your static buttons here
+// Botones y subfiltros de reciclaje
 const RECYCLING_TYPES = [
   { label: "Papel (PAP)", code: "PAP" },
   { label: "Plástico (PET)", code: "PET" },
@@ -13,7 +13,7 @@ const RECYCLING_TYPES = [
   { label: "Aluminio (ALU)", code: "ALU" },
   { label: "Cartón (CAR)", code: "CAR" },
   { label: "Otro", code: "OTROS" },
-  // Add others as needed: VIDRIO, LATA, etc.
+  // Hay más códigos en https://en.wikipedia.org/wiki/Recycling_codes
 ];
 
 export default function RecyclingFilter() {
@@ -21,7 +21,7 @@ export default function RecyclingFilter() {
   const { setPlaces } = useSidebar();
   const [activeCode, setActiveCode] = useState<string | null>(null);
 
-  // Load data independently (same pattern as PillFilter)
+  // Tiene su propia copia de los datos para filtrar (es una copia de PillFilter)
   useEffect(() => {
     const loadGeoJson = async () => {
       const { default: data } = await import("@/lib/places/data");
